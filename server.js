@@ -21,7 +21,11 @@ const router = new Router()
 router.get("/messages/unread", async ctx => {
 	mailDb.generateMessages()
 
-	ctx.response.body = JSON.stringify(mailDb.messages)
+	ctx.response.body = JSON.stringify({
+		status: "ok",
+		timestamp: Date.now(),
+		messages: mailDb.messages
+	})
 })
 
 router.get("/", async ctx => {
