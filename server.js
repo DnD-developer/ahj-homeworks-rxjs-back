@@ -25,9 +25,7 @@ router.get("/messages/unread", async ctx => {
 })
 
 router.get("/", async ctx => {
-	mailDb.generateMessages()
-
-	ctx.response.body = JSON.stringify(mailDb.messages)
+	ctx.response.body = "server D&D.projects start"
 })
 
 app.use(router.routes()).use(router.allowedMethods())
